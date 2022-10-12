@@ -276,6 +276,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+body #control-panel {
+  padding: 1rem;
+  background-color: darkgoldenrod;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
 body #control-panel .input-block {
   margin: 0.25rem auto;
+}
+body #control-panel button[type=submit] {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
 }/*# sourceMappingURL=style.css.map */
