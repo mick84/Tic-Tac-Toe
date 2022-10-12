@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./public/styles/style.css" />
+    <script defer src="./public/scripts/app.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1>Welcome to the Tic-Tac-Toe game!</h1>
+    <form action="/" method="get" id="control-panel">
+      <div class="input-block">
+        <span>Choose board length: </span>
+        <select name="board-length" id="board-length">
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="input-block"></div>
+      <button type="submit">Apply Changes</button>
+    </form>
+
+    <div id="board"></div>
+  </body>
 </html>

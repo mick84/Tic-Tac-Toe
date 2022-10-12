@@ -1,0 +1,16 @@
+@use "./scss/normalize";
+@use "./scss/my_normalize";
+@use "./scss/variables" as *;
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  #control-panel {
+    .input-block {
+      margin: 0.25rem auto;
+    }
+  }
+}
