@@ -6,23 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./public/styles/style.css" />
-    <script defer src="./public/scripts/app.js"></script>
+    <script defer src="./public/scripts/js/app.js"></script>
   </head>
-  <body>
-    <h1>Welcome to the Tic-Tac-Toe game!</h1>
-    <form action="/" method="get" id="control-panel">
-      <div class="input-block">
-        <span>Choose board length: </span>
-        <select name="board-length" id="board-length">
-          <option value="3" selected>3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-      <div class="input-block"></div>
-      <button type="submit">Apply Changes</button>
+  <body class="flex">
+    <h2>Welcome&nbsp;to&nbsp;the Tic-Tac-Toe&nbsp;game!</h2>
+    <form action="/" method="get" id="control-panel" class="flex-ver">
+      <section id="inputs">
+        <div class="input-block flex">
+          <span class="left">Choose board length: </span>
+          <span
+            ><label for="3">3</label>
+            <input type="radio" name="board-length" id="3" value="3" checked />
+            <label for="4">4</label>
+            <input type="radio" name="board-length" id="4" value="4"
+          /></span>
+        </div>
+        <div class="input-block flex">
+          <span class="left">Choose the beginner symbol: </span>
+          <span
+            ><label for="X">X</label
+            ><input type="radio" name="sign" value="X" checked />
+            <label for="O">O</label><input type="radio" name="sign" value="O"
+          /></span>
+        </div>
+      </section>
+      <section id="buttons" class="flex-ver">
+        <button type="submit" id="apply">Apply</button>
+        <button type="button" id="new-game">new Game</button>
+      </section>
     </form>
 
-    <div id="board"></div>
+    <div id="board">
+      <div class="cell" data-number="0"></div>
+      <div class="cell x" data-number="1"></div>
+      <div class="cell o" data-number="2"></div>
+      <div class="cell" data-number="3"></div>
+      <div class="cell" data-number="4"></div>
+      <div class="cell" data-number="5"></div>
+      <div class="cell" data-number="6"></div>
+      <div class="cell" data-number="7"></div>
+      <div class="cell" data-number="8"></div>
+      <div class="cell" data-number="9" hidden></div>
+      <div class="cell" data-number="10" hidden></div>
+      <div class="cell" data-number="11" hidden></div>
+      <div class="cell" data-number="12" hidden></div>
+      <div class="cell" data-number="13" hidden></div>
+      <div class="cell" data-number="14" hidden></div>
+      <div class="cell" data-number="15" hidden></div>
+    </div>
   </body>
 </html>
