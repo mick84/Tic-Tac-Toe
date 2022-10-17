@@ -9,65 +9,134 @@
     <script defer type="module" src="./public/scripts/js/app.js"></script>
   </head>
   <body class="flex">
-    <h2>Welcome&nbsp;to&nbsp;the Tic-Tac-Toe&nbsp;game!</h2>
-
-    <div id="board">
-      <div class="cell" data-number="0"></div>
-      <div class="cell" data-number="1"></div>
-      <div class="cell" data-number="2"></div>
-      <div class="cell" data-number="3"></div>
-      <div class="cell" data-number="4"></div>
-      <div class="cell" data-number="5"></div>
-      <div class="cell" data-number="6"></div>
-      <div class="cell" data-number="7"></div>
-      <div class="cell" data-number="8"></div>
-      <div class="cell" data-number="9" data-size="4"></div>
-      <div class="cell" data-number="10" data-size="4"></div>
-      <div class="cell" data-number="11" data-size="4"></div>
-      <div class="cell" data-number="12" data-size="4"></div>
-      <div class="cell" data-number="13" data-size="4"></div>
-      <div class="cell" data-number="14" data-size="4"></div>
-      <div class="cell" data-number="15" data-size="4"></div>
-      <div class="cell" data-number="16" data-size="5"></div>
-      <div class="cell" data-number="17" data-size="5"></div>
-      <div class="cell" data-number="18" data-size="5"></div>
-      <div class="cell" data-number="19" data-size="5"></div>
-      <div class="cell" data-number="20" data-size="5"></div>
-      <div class="cell" data-number="21" data-size="5"></div>
-      <div class="cell" data-number="22" data-size="5"></div>
-      <div class="cell" data-number="23" data-size="5"></div>
-      <div class="cell" data-number="24" data-size="5"></div>
+    <h1>
+      Welcome&nbsp;to&nbsp;the Tic&nbsp;-&nbsp;Tac&nbsp;-&nbsp;Toe&nbsp;game!
+    </h1>
+    <h2 id="announce"></h2>
+    <div class="flex">
+      <div class="player-table" id="player0">
+        <h3 class="timer"></h3>
+        <h3>Player&nbsp;1</h3>
+        <div class="flex"></div>
+        <h4>Scores:&nbsp;<span class="scores">0</span></h4>
+        <h4>Symbol:&nbsp;<span class="symbol"></span></h4>
+      </div>
+      <div id="board">
+        <div class="cell" data-number="0"></div>
+        <div class="cell" data-number="1"></div>
+        <div class="cell" data-number="2"></div>
+        <div class="cell" data-number="3"></div>
+        <div class="cell" data-number="4"></div>
+        <div class="cell" data-number="5"></div>
+        <div class="cell" data-number="6"></div>
+        <div class="cell" data-number="7"></div>
+        <div class="cell" data-number="8"></div>
+        <div class="cell" hidden data-number="9" data-size="4"></div>
+        <div class="cell" hidden data-number="10" data-size="4"></div>
+        <div class="cell" hidden data-number="11" data-size="4"></div>
+        <div class="cell" hidden data-number="12" data-size="4"></div>
+        <div class="cell" hidden data-number="13" data-size="4"></div>
+        <div class="cell" hidden data-number="14" data-size="4"></div>
+        <div class="cell" hidden data-number="15" data-size="4"></div>
+        <div class="cell" hidden data-number="16" data-size="5"></div>
+        <div class="cell" hidden data-number="17" data-size="5"></div>
+        <div class="cell" hidden data-number="18" data-size="5"></div>
+        <div class="cell" hidden data-number="19" data-size="5"></div>
+        <div class="cell" hidden data-number="20" data-size="5"></div>
+        <div class="cell" hidden data-number="21" data-size="5"></div>
+        <div class="cell" hidden data-number="22" data-size="5"></div>
+        <div class="cell" hidden data-number="23" data-size="5"></div>
+        <div class="cell" hidden data-number="24" data-size="5"></div>
+      </div>
+      <div class="player-table" id="player1">
+        <h3 class="timer"></h3>
+        <h3>Player&nbsp;2</h3>
+        <div class="flex"></div>
+        <h4>Scores:&nbsp;<span class="scores">0</span></h4>
+        <h4>Symbol:&nbsp;<span class="symbol"></span></h4>
+      </div>
     </div>
     <form action="/" method="get" id="control-panel" class="flex-ver">
       <section id="inputs">
-        <div class="input-block flex">
-          <span class="left">Choose board length: </span>
+        <div class="input-block flex" id="board-size">
+          <span class="left">Choose board size: </span>
           <span class="right"
-            ><label for="3"
-              >3<input type="radio" name="board-size" id="3" value="3" checked
-            /></label>
-            <label for="4"
-              >4<input type="radio" name="board-size" id="4" value="4"
-            /></label>
-            <label for="5"
-              >5
-              <input type="radio" name="board-size" id="5" value="5" /></label
-          ></span>
+            ><label for="3">3</label
+            ><input
+              type="radio"
+              name="board-size"
+              id="3"
+              value="3"
+              checked
+              oninput="rangeInput.max=value; rangeInput.value=3;rangevalue.value=3;" />
+            <label for="4">4</label
+            ><input
+              type="radio"
+              name="board-size"
+              id="4"
+              value="4"
+              oninput="rangeInput.max=value; rangeInput.value=3;rangevalue.value=3;" />
+            <label for="5">5</label
+            ><input
+              type="radio"
+              name="board-size"
+              id="5"
+              value="5"
+              oninput="rangeInput.max=value; rangeInput.value=3;rangevalue.value=3;"
+          /></span>
         </div>
-        <div class="input-block flex">
+        <div class="input-block flex" id="symbol">
           <span class="left">Choose the beginner symbol: </span>
           <span class="right"
             ><label for="x"
-              >X<input type="radio" id="x" name="symbol" value="x" checked
+              >X<input
+                type="radio"
+                id="x"
+                name="beginnerSymbol"
+                value="x"
+                checked
             /></label>
             <label for="o"
-              >O<input type="radio" id="o" name="symbol" value="o" /></label
+              >O<input
+                type="radio"
+                id="o"
+                name="beginnerSymbol"
+                value="o" /></label
           ></span>
         </div>
+        <div class="input-block flex" id="strick-length">
+          <span class="left">Set streak length: </span>
+          <span class="right"
+            ><input
+              type="range"
+              min="3"
+              value="3"
+              max="3"
+              name="strick-length"
+              id="rangeInput"
+              oninput="rangevalue.value=value"
+            />
+            <output id="rangevalue">&nbsp;3</output></span
+          >
+        </div>
+        <div class="input-block flex" id="time">
+          <span class="left">Set timer(0 to disable):</span>
+          <input
+            type="range"
+            name="countdown"
+            id="countdown"
+            min="0"
+            max="5"
+            value="0"
+            oninput="countdownValue.value=value"
+          />
+          <output id="countdownValue">0</output>
+        </div>
       </section>
-
-      <!-- <button type="button" id="apply">Apply</button> -->
-      <button type="submit">new Game</button>
+      <div class="flex">
+        <button type="reset">reset scores</button>
+        <button type="submit">New Game</button>
+      </div>
     </form>
   </body>
 </html>
